@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.overlay {
+  filter: url(#noiseFilter);
+  backdrop-filter: blur(200px);
+}
