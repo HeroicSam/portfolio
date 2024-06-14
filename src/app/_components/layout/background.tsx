@@ -10,6 +10,21 @@ export default function Background() {
     if (typeof window !== "undefined") {
       setBlobDimension(window.innerWidth * 0.3);
     }
+
+    window.addEventListener('resize', () => {
+      if (typeof window !== "undefined") {
+        setBlobDimension(window.innerWidth * 0.3);
+      }
+    })
+
+    return () => {
+      window.removeEventListener('resize', () => {
+        if (typeof window !== "undefined") {
+          setBlobDimension(window.innerWidth * 0.3);
+        }
+      })
+    }
+
   }, []);
 
   const handleMouseMove = (e: MouseEvent) => {
@@ -28,7 +43,6 @@ export default function Background() {
   };
 
   useEffect(() => {
-
     gsap.set(".blob", {
       width: `${blobDimension}px`,
       height: `${blobDimension}px`,
@@ -48,7 +62,7 @@ export default function Background() {
         <div className="absolute w-full h-full overlay z-10">
         </div>
         <div className="fixed w-full h-full flex justify-center items-center overflow-hidden z-0">
-          <div className="hidden md:block blob absolute rounded-full bg-cyan-100 translate-x-[-50%] translate-y-[-50%]" />
+          <div className="hidden md:block blob absolute rounded-full bg-cyan-200 translate-x-[-50%] translate-y-[-50%]" />
         </div>
         <svg>
           <filter id='noiseFilter'>

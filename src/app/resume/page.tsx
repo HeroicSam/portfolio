@@ -6,6 +6,8 @@ import { projectsData, resumeData } from "../_components/resume/constants";
 import Badge from "../_components/resume/badge";
 import gsap from "gsap";
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const anim = (variants: any) => {
@@ -66,22 +68,78 @@ export default function Resume() {
       <motion.div className='slide' {...anim(slide)}/>
       <motion.div className='page' {...anim(perspective)}>
         <motion.div {...anim(opacity)}>
-          <div className="w-full lg:min-w-[900px] flex justify-between">
+          <div className="w-full lg:min-w-[900px] flex justify-between h-full">
             {scroll && (
-              <nav className="sticky top-[100px] h-full hidden lg:flex flex-col gap-y-2 text-sm font-bold">
-                <div className="inline-flex items-center">
-                  <div className="bullet1 hidden opacity-0 w-1 h-1 bg-black rounded-[50%]"/>
-                  <a onClick = {() => scroll.scrollTo("#experience")} href="#experience" className="nav1 hover:cursor-pointer" onMouseEnter={() => handleMouseEnter({ number: "1"})} onMouseLeave={() => handleMouseOut({ number: "1"})}>Experience</a>
+              <div className="sticky top-[100px] h-[calc(100vh-120px)] hidden lg:flex flex-col justify-between pr-10 border-r">
+                <nav className="flex flex-col gap-y-2 text-sm font-bold">
+                  <div className="inline-flex items-center">
+                    <div className="bullet1 hidden opacity-0 w-1 h-1 bg-black rounded-[50%]"/>
+                    <a onClick = {() => scroll.scrollTo("#experience")} href="#experience" className="nav1 hover:cursor-pointer" onMouseEnter={() => handleMouseEnter({ number: "1"})} onMouseLeave={() => handleMouseOut({ number: "1"})}>Experience</a>
+                  </div>
+                  <div className="inline-flex items-center">
+                    <div className="bullet2 hidden opacity-0 w-1 h-1 bg-black rounded-[50%]"/>
+                    <a onClick = {() => scroll.scrollTo("#projects")} href="#projects" className="nav2 hover:cursor-pointer" onMouseEnter={() => handleMouseEnter({ number: "2"})} onMouseLeave={() => handleMouseOut({ number: "2"})}>Projects</a>
+                  </div>
+                  <div className="inline-flex items-center">
+                    <div className="bullet3 hidden opacity-0 w-1 h-1 bg-black rounded-[50%]"/>
+                    <a className="nav3 hover:cursor-pointer" onMouseEnter={() => handleMouseEnter({ number: "3"})} onMouseLeave={() => handleMouseOut({ number: "3"})}>Education</a>
+                  </div>
+                  <div className="flex items-center gap-x-2">
+                    <div className="font-medium flex items-center gap-x-1 text-xs mt-2">
+                      <input type="radio" id="light-radio" value="light" defaultChecked onClick={() => console.log('running')} className="appearance-none h-2 w-2 border border-[#252525] checked:border-[#252525] checked:before:bg-black hover:cursor-pointer"/>
+                      <label htmlFor="checkbox" className="flex items-center gap-x-1 hover:cursor-pointer">Light</label>
+                    </div>
+                    <div className="font-medium flex items-center gap-x-1 text-xs mt-2">
+                      <input type="radio" id="dark-radio" value="light" defaultChecked onClick={() => console.log('running')} className="appearance-none h-2 w-2 border border-[#252525] checked:border-[#252525] checked:before:bg-black hover:cursor-pointer"/>
+                      <label htmlFor="checkbox" className="flex items-center gap-x-1 hover:cursor-pointer">Dark</label>
+                    </div>
+                  </div>
+                </nav>
+                <div className="w-full max-w-[100px] text-xs font-bold">
+                  <p>Born and raised in New Jersey, USA.</p>
+                  <p className="whitespace-pre-line">On holidays you can find me at de_dust2 and sometimes de_mirage.</p>
+                  <p className="whitespace-pre-line">Currently typing on a Paragon75 with Cherry MX Blacks.</p>
+                  <div className="flex mt-4 gap-x-2">
+                    <Link
+                      href="https://github.com/heroicsam"
+                      target="_blank"
+                      referrerPolicy="no-referrer"
+                    >
+                      <Image  
+                        src="/github.svg"
+                        alt="github"
+                        width={24}
+                        height={24}
+                      />
+                    </Link>
+                    <Link
+                      href="https://www.instagram.com/conoryuen/"
+                      target="_blank"
+                      referrerPolicy="no-referrer"
+                    >
+                      <Image
+                        src="/linkedin.svg"
+                        alt="linkedin"
+                        width={24}
+                        height={24}
+                      />
+                    </Link>
+                    <Link
+                      href="https://www.instagram.com/conoryuen/"
+                      target="_blank"
+                      referrerPolicy="no-referrer"
+                    >
+                      <Image
+                        src="/instagram.svg"
+                        alt="instagram"
+                        width={24}
+                        height={24}
+                      />
+                    </Link>
+
+                  </div>
                 </div>
-                <div className="inline-flex items-center">
-                  <div className="bullet2 hidden opacity-0 w-1 h-1 bg-black rounded-[50%]"/>
-                  <a onClick = {() => scroll.scrollTo("#projects")} href="#projects" className="nav2 hover:cursor-pointer" onMouseEnter={() => handleMouseEnter({ number: "2"})} onMouseLeave={() => handleMouseOut({ number: "2"})}>Projects</a>
-                </div>
-                <div className="inline-flex items-center">
-                  <div className="bullet3 hidden opacity-0 w-1 h-1 bg-black rounded-[50%]"/>
-                  <a className="nav3 hover:cursor-pointer" onMouseEnter={() => handleMouseEnter({ number: "3"})} onMouseLeave={() => handleMouseOut({ number: "3"})}>Education</a>
-                </div>
-              </nav>
+              </div>
             )}
             <div>
               <div id="experience" className="px-6 font-bold mb-8">Experience</div>
