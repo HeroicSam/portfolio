@@ -1,8 +1,9 @@
 'use client';
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { slide, opacity, perspective } from "../_components/anim";
+import { projectsData, resumeData } from "./constants";
+import Badge from "./badge";
 
 const anim = (variants: any) => {
   return {
@@ -18,13 +19,64 @@ export default function Resume() {
     <div className='absolute w-full h-[calc(100vh-100px)] top-[100px] flex justify-center z-40'>
       <motion.div className='slide' {...anim(slide)}/>
       <motion.div className='page' {...anim(perspective)}>
-          <motion.div {...anim(opacity)}>
-              <div className='header'>
-                  <Link href="/">Home</Link>
-                  <Link href="/about">About</Link>
-                  <Link href="/contact">Contact</Link>
-              </div>
-          </motion.div>
+        <motion.div {...anim(opacity)}>
+          <div className="px-6 font-bold mb-4">Experience</div>
+          {resumeData.map((data, index) => (
+            <div key={index} className="group mb-4">
+              <a
+                className="group-hover:shadow-lg group-hover:backdrop-blur-3xl bg-transparent transition flex px-6 py-4 gap-x-6 max-w-[700px] hover:cursor-pointer rounded-md"
+                href={data.link}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <header className="text-sm text-slate-500 min-w-fit line-clamp-1 min-w-[95px]">{data.period}</header>
+                <div className="flex flex-col">
+                  <div className="inline-flex gap-x-2 duration-200">
+                    <h2 className="text-slate-800 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.title}</h2>
+                    <div className="duration-200 group-hover:text-cyan-500 group-hover:translate-x-1">&#8594;</div>
+                  </div>
+                  <p className="font-light text-sm mt-1">{data.description}</p>
+                  <div className="flex flex-wrap gap-y-2 mt-4">
+                    {data.technologies && data.technologies.map((tech, index) => (
+                      <Badge key={index} text={tech} />
+                    ))}
+                  </div>
+                </div>
+              </a>
+            </div>
+          ))}
+          <div className="px-6 font-bold mb-4">Projects</div>
+          {projectsData.map((data, index) => (
+            <div key={index} className="group mb-4">
+              <a
+                className="group-hover:shadow-lg group-hover:backdrop-blur-3xl bg-transparent transition flex px-6 py-4 gap-x-6 max-w-[700px] hover:cursor-pointer rounded-md"
+                href={data.link}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <header className="text-sm text-slate-500 min-w-fit line-clamp-1 min-w-[95px]">{data.period}</header>
+                <div className="flex flex-col">
+                  <div className="inline-flex gap-x-2 duration-200">
+                    <h2 className="text-slate-800 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.title}</h2>
+                    <div className="duration-200 group-hover:text-cyan-500 group-hover:translate-x-1">&#8594;</div>
+                  </div>
+                  <p className="font-light text-sm mt-1">{data.description}</p>
+                  <div className="flex flex-wrap gap-y-2 mt-4">
+                    {data.technologies && data.technologies.map((tech, index) => (
+                      <Badge key={index} text={tech} />
+                    ))}
+                  </div>
+                </div>
+              </a>
+            </div>
+          ))}
+          <div className="group px-6 font-bold mb-4 hover:cursor-pointer">
+            <a className="inline-flex gap-x-2 text-slate-800 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors">
+              <span>View Full Resume</span>
+              <span className="duration-200 group-hover:text-cyan-500 group-hover:translate-x-1 font-medium">&#8594;</span>
+            </a>
+          </div>
+        </motion.div>
       </motion.div>
     </div>
   );

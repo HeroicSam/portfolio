@@ -14,7 +14,7 @@ export default function Background() {
     gsap.to(".blob", {
       left: `${percentX}%`,
       top: `${percentY}%`,
-      duration: 2,
+      duration: 0,
     });
 
   };

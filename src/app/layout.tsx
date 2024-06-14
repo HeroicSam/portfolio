@@ -8,7 +8,7 @@ import { TRPCReactProvider } from "@/trpc/react";
 import { AnimatePresence } from "framer-motion";
 import Header from "./_components/header";
 import Background from "./_components/background";
-import App, { AppProps } from "next/app";
+import { AppProps } from "next/app";
 
 // export const metadata = {
 //   title: "Conor Yuen",
