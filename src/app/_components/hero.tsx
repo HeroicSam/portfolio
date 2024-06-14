@@ -2,6 +2,7 @@
 
 import { kaisei } from "@/styles/fonts";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -19,7 +20,7 @@ export default function Hero() {
               width={24}
               height={24}
             />
-            <p className={`${kaisei.className} mb-0.5 hover:underline hover:cursor-pointer hover:transition-transform hover:duration-200 hover:ease-in-out hover:translate-x-0.5 hover:-translate-y-0.5 hover:text-blue-600`}>check out my resume</p>
+            <Link href="/resume" className={`${kaisei.className} mb-0.5 hover:underline hover:cursor-pointer hover:transition-transform hover:duration-200 hover:ease-in-out hover:translate-x-0.5 hover:-translate-y-0.5 hover:text-blue-600`}>check out my resume</Link>
           </div>
           <div className="flex items-center gap-x-2 text-sm">
             <Image
@@ -28,7 +29,7 @@ export default function Hero() {
               width={24}
               height={24}
             />
-            <p className={`${kaisei.className} mb-0.5 hover:underline hover:cursor-pointer hover:transition-transform hover:duration-200 hover:ease-in-out hover:translate-x-0.5 hover:-translate-y-0.5 hover:text-blue-600`}>about me</p>
+            <Link href="/" className={`${kaisei.className} mb-0.5 hover:underline hover:cursor-pointer hover:transition-transform hover:duration-200 hover:ease-in-out hover:translate-x-0.5 hover:-translate-y-0.5 hover:text-blue-600`}>about me</Link>
           </div>
         </div>
       </div>

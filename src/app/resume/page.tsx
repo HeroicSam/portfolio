@@ -31,7 +31,7 @@ export default function Resume() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <header className="text-sm text-slate-500 min-w-fit line-clamp-1 min-w-[95px]">{data.period}</header>
+                <header className="text-sm text-slate-500 line-clamp-1 min-w-[95px]">{data.period}</header>
                 <div className="flex flex-col">
                   <div className="inline-flex gap-x-2 duration-200">
                     <h2 className="text-slate-800 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.title}</h2>
@@ -56,7 +56,7 @@ export default function Resume() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <header className="text-sm text-slate-500 min-w-fit line-clamp-1 min-w-[95px]">{data.period}</header>
+                <header className="text-sm text-slate-500 line-clamp-1 min-w-[95px]">{data.period}</header>
                 <div className="flex flex-col">
                   <div className="inline-flex gap-x-2 duration-200">
                     <h2 className="text-slate-800 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.title}</h2>
