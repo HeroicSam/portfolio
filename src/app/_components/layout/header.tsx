@@ -7,7 +7,6 @@ import { kaisei } from "@/styles/fonts";
 export default function Header() {
 
   function handleMouseEnter({ number }: { number: string }) {
-    console.log(number)
     gsap.to(`.link${number}`, {
       duration: 0.1,
       y: -4,
@@ -38,7 +37,7 @@ export default function Header() {
   return (
     <header className="absolute w-full h-[100px] flex justify-center bg-transparent px-6 sm:px-20 top-0 rounded-lg text-[#252525] z-40">
       <div className="w-full flex justify-between items-center max-w-[900px]">
-        <Link href="/" className={`${kaisei.className} text-2xl font-bold`}>CY</Link>
+        <Link href="/" className={`${kaisei.className} text-2xl font-bold`}>Conor Lee Yuen</Link>
         <div className="flex items-center text-sm ">
           <Link
             href="/"

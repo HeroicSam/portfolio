@@ -48,7 +48,7 @@ export default function Background() {
         <div className="absolute w-full h-full overlay z-10">
         </div>
         <div className="fixed w-full h-full flex justify-center items-center overflow-hidden z-0">
-          <div className="blob absolute rounded-full bg-[#ECE1A9] translate-x-[-50%] translate-y-[-50%]" />
+          <div className="hidden md:block blob absolute rounded-full bg-cyan-100 translate-x-[-50%] translate-y-[-50%]" />
         </div>
         <svg>
           <filter id='noiseFilter'>

@@ -66,7 +66,7 @@ export const projectsData = [
   {
     period: "2022",
     company: "Against All Odds",
-    link: "https://www.inizio.com",
+    link: "https://aao-usa.com",
     description: "Designed the warehouse inventory management system for an urban clothing company.",
     technologies: [
       "Figma",
