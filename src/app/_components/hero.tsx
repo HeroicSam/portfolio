@@ -1,10 +1,21 @@
 'use client';
 
 import { kaisei } from "@/styles/fonts";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
   
 export default function Hero() {
+  const { theme } = useTheme()
+  const [isMounted , setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  if (!isMounted) return null
+
   return (
     <div className="absolute w-full h-[calc(100vh-100px)] top-[100px] flex justify-center z-40 overflow-hidden">
       <div className="w-full max-w-[900px] flex flex-col md:flex-row px-6">  
@@ -15,7 +26,7 @@ export default function Hero() {
           <div className="flex items-center gap-x-4 mt-4" >
             <div className="flex items-center gap-x-2 text-sm">
               <Image
-                src="/arrow.png"
+                src={theme === 'dark' ? '/arrow-slate-100.png' : '/arrow.png'}
                 alt="arrow"
                 width={24}
                 height={24}
@@ -24,7 +35,7 @@ export default function Hero() {
             </div>
             <div className="flex items-center gap-x-2 text-sm">
               <Image
-                src="/arrow.png"
+                src={theme === 'dark' ? '/arrow-slate-100.png' : '/arrow.png'}
                 alt="arrow"
                 width={24}
                 height={24}
