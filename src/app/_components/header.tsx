@@ -1,9 +1,8 @@
 'use client';
 
 import Link from "next/link";
-import { kaisei } from "../layout";
 import gsap from "gsap";
-import { MouseEventHandler, useEffect, useRef } from "react";
+import { kaisei } from "@/styles/fonts";
 
 export default function Header() {
 

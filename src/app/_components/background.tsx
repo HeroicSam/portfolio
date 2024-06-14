@@ -32,7 +32,7 @@ export default function Background() {
       window.removeEventListener('mousemove', handleMouseMove);
     };
 
-  },[]);
+  },[ blobDimension ]);
 
   return (
     <>

@@ -5,11 +5,13 @@ import { slide, opacity, perspective } from "../_components/anim";
 import { projectsData, resumeData } from "./constants";
 import Badge from "./badge";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const anim = (variants: any) => {
   return {
       initial: "initial",
       animate: "enter",
       exit: "exit",
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       variants
   }
 }
@@ -37,7 +39,7 @@ export default function Resume() {
                   </div>
                   <p className="font-light text-sm mt-1">{data.description}</p>
                   <div className="flex flex-wrap gap-y-2 mt-4">
-                    {data.technologies && data.technologies.map((tech, index) => (
+                    {data?.technologies.map((tech, index) => (
                       <Badge key={index} text={tech} />
                     ))}
                   </div>
@@ -62,7 +64,7 @@ export default function Resume() {
                   </div>
                   <p className="font-light text-sm mt-1">{data.description}</p>
                   <div className="flex flex-wrap gap-y-2 mt-4">
-                    {data.technologies && data.technologies.map((tech, index) => (
+                    {data?.technologies.map((tech, index) => (
                       <Badge key={index} text={tech} />
                     ))}
                   </div>

@@ -1,7 +1,7 @@
 'use client';
 
+import { kaisei } from "@/styles/fonts";
 import Image from "next/image";
-import { kaisei } from "../layout";
 
 export default function Hero() {
   return (

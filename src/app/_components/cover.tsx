@@ -14,9 +14,8 @@ export default function Cover() {
         amount: 0.5,
       },
       ease: "power4.inOut",
-    }).then(() => {
-      setTransition(true);
-    })
+      onComplete: () => setTransition(true),
+    });
   }, [])
 
 
