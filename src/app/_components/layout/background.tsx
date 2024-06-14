@@ -1,22 +1,30 @@
 'use client';
 
 import gsap from "gsap";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Background() {
-  const blobDimension = window.innerWidth * 0.3;
+  const [blobDimension, setBlobDimension] = useState<number>(0);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setBlobDimension(window.innerWidth * 0.3);
+    }
+  }, []);
 
   const handleMouseMove = (e: MouseEvent) => {
+    if (typeof window !== "undefined") {
+      const percentX = (e.clientX / window.innerWidth) * 100;
+      const percentY = (e.clientY / window.innerHeight) * 100;
 
-    const percentX = (e.clientX / window.innerWidth) * 100;
-    const percentY = (e.clientY / window.innerHeight) * 100;
-
-    gsap.to(".blob", {
-      left: `${percentX}%`,
-      top: `${percentY}%`,
-      duration: 0,
-    });
-
+      gsap.to(".blob", {
+        left: `${percentX}%`,
+        top: `${percentY}%`,
+        duration: 0,
+      });
+    } else {
+      return;
+    }
   };
 
   useEffect(() => {
