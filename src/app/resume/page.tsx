@@ -8,6 +8,7 @@ import gsap from "gsap";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const anim = (variants: any) => {
@@ -21,6 +22,13 @@ const anim = (variants: any) => {
 }
 
 export default function Resume() {
+  const { theme, setTheme }  = useTheme()
+  const [isMounted , setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
   const [scroll, setScroll] = useState<LocomotiveScroll | null>(null);
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -63,39 +71,51 @@ export default function Resume() {
     })
   }
 
+  if (!isMounted) return null
+
   return (
-    <div className='absolute w-full h-[calc(100vh-100px)] top-[100px] flex justify-center z-40'>
+    <div className='absolute w-full h-[calc(100vh-100px)] top-[100px] flex justify-center z-40 text-[#252525] dark:text-slate-100'>
       <motion.div className='slide' {...anim(slide)}/>
       <motion.div className='page' {...anim(perspective)}>
         <motion.div {...anim(opacity)}>
           <div className="w-full lg:min-w-[900px] flex justify-between h-full">
             {scroll && (
-              <div className="sticky top-[100px] h-[calc(100vh-120px)] hidden lg:flex flex-col justify-between pr-10 border-r">
+              <div className="sticky top-[100px] h-[calc(100vh-120px)] hidden lg:flex flex-col justify-between pr-10 border-r border-[#252525] dark:border-slate-200">
                 <nav className="flex flex-col gap-y-2 text-sm font-bold">
                   <div className="inline-flex items-center">
-                    <div className="bullet1 hidden opacity-0 w-1 h-1 bg-black rounded-[50%]"/>
+                    <div className="bullet1 hidden opacity-0 w-1 h-1 bg-black dark:bg-slate-100 rounded-[50%]"/>
                     <a onClick = {() => scroll.scrollTo("#experience")} href="#experience" className="nav1 hover:cursor-pointer" onMouseEnter={() => handleMouseEnter({ number: "1"})} onMouseLeave={() => handleMouseOut({ number: "1"})}>Experience</a>
                   </div>
                   <div className="inline-flex items-center">
-                    <div className="bullet2 hidden opacity-0 w-1 h-1 bg-black rounded-[50%]"/>
+                    <div className="bullet2 hidden opacity-0 w-1 h-1 bg-black dark:bg-slate-100 rounded-[50%]"/>
                     <a onClick = {() => scroll.scrollTo("#projects")} href="#projects" className="nav2 hover:cursor-pointer" onMouseEnter={() => handleMouseEnter({ number: "2"})} onMouseLeave={() => handleMouseOut({ number: "2"})}>Projects</a>
                   </div>
                   <div className="inline-flex items-center">
-                    <div className="bullet3 hidden opacity-0 w-1 h-1 bg-black rounded-[50%]"/>
+                    <div className="bullet3 hidden opacity-0 w-1 h-1 bg-black dark:bg-slate-100 rounded-[50%]"/>
                     <a className="nav3 hover:cursor-pointer" onMouseEnter={() => handleMouseEnter({ number: "3"})} onMouseLeave={() => handleMouseOut({ number: "3"})}>Education</a>
                   </div>
                   <div className="flex items-center gap-x-2">
-                    <div className="font-medium flex items-center gap-x-1 text-xs mt-2">
-                      <input type="radio" id="light-radio" value="light" defaultChecked onClick={() => console.log('running')} className="appearance-none h-2 w-2 border border-[#252525] checked:border-[#252525] checked:before:bg-black hover:cursor-pointer"/>
+                    <div className="font-medium flex items-center gap-x-1 text-xs mt-2" onClick={() => setTheme('light')}>
+                      <div className="grid place-items-center">
+                        <input type="radio" id="light-radio" value="light" defaultChecked className="col-start-1 row-start-1 appearance-none h-2 w-2 border border-[#252525] dark:border-slate-200 checked:before:bg-black hover:cursor-pointer"/>
+                        {theme === 'light' && (
+                          <div className="col-start-1 row-start-1 w-1 h-1 bg-[#252525]"/> 
+                        )}
+                      </div>
                       <label htmlFor="checkbox" className="flex items-center gap-x-1 hover:cursor-pointer">Light</label>
                     </div>
-                    <div className="font-medium flex items-center gap-x-1 text-xs mt-2">
-                      <input type="radio" id="dark-radio" value="light" defaultChecked onClick={() => console.log('running')} className="appearance-none h-2 w-2 border border-[#252525] checked:border-[#252525] checked:before:bg-black hover:cursor-pointer"/>
+                    <div className="font-medium flex items-center gap-x-1 text-xs mt-2" onClick={() => setTheme('dark')}>
+                      <div className="grid place-items-center">
+                        <input type="radio" id="dark-radio" value="dark" defaultChecked className="col-start-1 row-start-1 appearance-none h-2 w-2 border border-[#252525] dark:border-slate-200 checked:before:bg-black hover:cursor-pointer"/>
+                        {theme === 'dark' && (
+                          <div className="col-start-1 row-start-1 w-1 h-1 bg-slate-200"/>
+                        )}
+                      </div>
                       <label htmlFor="checkbox" className="flex items-center gap-x-1 hover:cursor-pointer">Dark</label>
                     </div>
                   </div>
                 </nav>
-                <div className="w-full max-w-[100px] text-xs font-bold">
+                <div className="w-full max-w-[100px] text-xs font-bold dark:text-white">
                   <p>Born and raised in New Jersey, USA.</p>
                   <p className="whitespace-pre-line">On holidays you can find me at de_dust2 and sometimes de_mirage.</p>
                   <p className="whitespace-pre-line">Currently typing on a Paragon75 with Cherry MX Blacks.</p>
@@ -106,7 +126,7 @@ export default function Resume() {
                       referrerPolicy="no-referrer"
                     >
                       <Image  
-                        src="/github.svg"
+                        src={theme === 'dark' ? 'github-slate-100.svg' : 'github.svg'}
                         alt="github"
                         width={24}
                         height={24}
@@ -118,7 +138,7 @@ export default function Resume() {
                       referrerPolicy="no-referrer"
                     >
                       <Image
-                        src="/linkedin.svg"
+                        src={theme === 'dark' ? 'linkedin-slate-100.svg' : 'linkedin.svg'}
                         alt="linkedin"
                         width={24}
                         height={24}
@@ -130,7 +150,7 @@ export default function Resume() {
                       referrerPolicy="no-referrer"
                     >
                       <Image
-                        src="/instagram.svg"
+                        src={theme === 'dark' ? 'instagram-slate-100.svg' : 'instagram.svg'}
                         alt="instagram"
                         width={24}
                         height={24}
@@ -151,12 +171,12 @@ export default function Resume() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <header className="text-sm text-slate-500 line-clamp-1 min-w-[95px] mt-0.5">{data.period}</header>
+                    <header className="text-sm text-slate-500 dark:text-slate-300 line-clamp-1 min-w-[95px] mt-0.5">{data.period}</header>
                     <div className="flex flex-col">
                       <div className="inline-flex gap-x-2 duration-200">
-                        <h2 className="text-slate-800 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.title}</h2>
-                        <h2 className="text-slate-800 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">&#183;</h2>
-                        <h2 className="text-slate-800 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.company}</h2>
+                        <h2 className="text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.title}</h2>
+                        <h2 className="text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">&#183;</h2>
+                        <h2 className="text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.company}</h2>
                         <div className="duration-200 group-hover:text-cyan-500 group-hover:translate-x-1">&#8594;</div>
                       </div>
                       <p className="font-light text-sm mt-1">{data.description}</p>
@@ -178,10 +198,10 @@ export default function Resume() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <header className="text-sm text-slate-500 line-clamp-1 min-w-[95px] mt-0.5">{data.period}</header>
+                    <header className="text-sm text-slate-500 dark:text-slate-300 line-clamp-1 min-w-[95px] mt-0.5">{data.period}</header>
                     <div className="flex flex-col">
                       <div className="inline-flex gap-x-2 duration-200">
-                        <h2 className="text-slate-800 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.company}</h2>
+                        <h2 className="text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.company}</h2>
                         <div className="duration-200 group-hover:text-cyan-500 group-hover:translate-x-1">&#8594;</div>
                       </div>
                       <p className="font-light text-sm mt-1">{data.description}</p>
@@ -195,7 +215,7 @@ export default function Resume() {
                 </div>
               ))}
               <div className="group px-6 font-bold pb-20 hover:cursor-pointer">
-                <a className="inline-flex gap-x-2 text-slate-800 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors">
+                <a className="inline-flex gap-x-2 text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors">
                   <span>View Full Resume</span>
                   <span className="duration-200 group-hover:text-cyan-500 group-hover:translate-x-1 font-medium">&#8594;</span>
                 </a>
