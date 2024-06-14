@@ -1,5 +1,6 @@
 'use client';
 
+import { kaisei } from "@/styles/fonts";
 import { gsap } from "gsap";
 import { useEffect, useState } from "react";
 

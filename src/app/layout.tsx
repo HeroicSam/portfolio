@@ -7,12 +7,6 @@ import { AnimatePresence } from "framer-motion";
 import Header from "./_components/layout/header";
 import Background from "./_components/layout/background";
 
-// export const metadata = {
-//   title: "Conor Yuen",
-//   description: "My portfolio website",
-//   icons: [{ rel: "icon", url: "/favicon.ico" }],
-// };
-
 export default function RootLayout({
   children,
 }: {
@@ -23,8 +17,8 @@ export default function RootLayout({
       <body>
         <TRPCReactProvider>
           <AnimatePresence mode="wait">
-            <Header />
-            <Background />
+            <Header key={"header"} />
+            <Background key={"background"} />
             {children}
           </AnimatePresence>
         </TRPCReactProvider>

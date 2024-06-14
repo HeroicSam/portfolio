@@ -3,13 +3,13 @@
 import { kaisei } from "@/styles/fonts";
 import Image from "next/image";
 import Link from "next/link";
-
+  
 export default function Hero() {
   return (
-    <div className="absolute w-full h-[calc(100vh-100px)] top-[100px] flex justify-center z-40 ">
+    <div className="absolute w-full h-[calc(100vh-100px)] top-[100px] flex justify-center z-40 overflow-hidden">
       <div className="w-full max-w-[900px] flex flex-col md:flex-row px-6">  
         <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col items-center md:justify-center md:items-start pt-10 md:pt-0">
-          <h1 className="text-5xl font-bold">Heya! I&apos;m <span className="text-cyan-500">Conor</span>.</h1>
+          <h1 className="hello text-5xl font-bold">Heya! I&apos;m <span className="text-cyan-500">Conor</span></h1>
           <p className="font-light mt-4">I&apos;m a full-stack developer based in Brooklyn, NY</p>
           <p className="font-light">Currently working on payments at <span className="text-[#0172DA] font-medium">Hotswaps.io</span></p>
           <div className="flex items-center gap-x-4 mt-4" >
