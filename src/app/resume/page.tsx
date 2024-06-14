@@ -1,9 +1,9 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { slide, opacity, perspective } from "../_components/anim";
-import { projectsData, resumeData } from "./constants";
-import Badge from "./badge";
+import { slide, opacity, perspective } from "../_components/resume/anim";
+import { projectsData, resumeData } from "../_components/resume/constants";
+import Badge from "../_components/resume/badge";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const anim = (variants: any) => {

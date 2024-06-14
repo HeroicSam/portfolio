@@ -4,8 +4,8 @@ import "@/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { TRPCReactProvider } from "@/trpc/react";
 import { AnimatePresence } from "framer-motion";
-import Header from "./_components/header";
-import Background from "./_components/background";
+import Header from "./_components/layout/header";
+import Background from "./_components/layout/background";
 
 // export const metadata = {
 //   title: "Conor Yuen",
