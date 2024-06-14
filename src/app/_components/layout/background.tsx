@@ -44,7 +44,7 @@ export default function Background() {
 
   return (
     <>
-      <div className="absolute top-0 w-full h-full z-10">
+      <div className="fixed top-0 w-full h-full z-10">
         <div className="absolute w-full h-full overlay z-10">
         </div>
         <div className="fixed w-full h-full flex justify-center items-center overflow-hidden z-0">

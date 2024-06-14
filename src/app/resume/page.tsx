@@ -22,7 +22,7 @@ export default function Resume() {
       <motion.div className='slide' {...anim(slide)}/>
       <motion.div className='page' {...anim(perspective)}>
         <motion.div {...anim(opacity)}>
-          <div className="px-6 font-bold mb-4">Experience</div>
+          <div className="px-6 font-bold mb-8">Experience</div>
           {resumeData.map((data, index) => (
             <div key={index} className="group mb-4">
               <a
@@ -35,6 +35,8 @@ export default function Resume() {
                 <div className="flex flex-col">
                   <div className="inline-flex gap-x-2 duration-200">
                     <h2 className="text-slate-800 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.title}</h2>
+                    <h2 className="text-slate-800 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">&#183;</h2>
+                    <h2 className="text-slate-800 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.company}</h2>
                     <div className="duration-200 group-hover:text-cyan-500 group-hover:translate-x-1">&#8594;</div>
                   </div>
                   <p className="font-light text-sm mt-1">{data.description}</p>
@@ -47,7 +49,7 @@ export default function Resume() {
               </a>
             </div>
           ))}
-          <div className="px-6 font-bold mb-4">Projects</div>
+          <div className="px-6 font-bold mb-8">Projects</div>
           {projectsData.map((data, index) => (
             <div key={index} className="group mb-4">
               <a
@@ -59,7 +61,7 @@ export default function Resume() {
                 <header className="text-sm text-slate-500 line-clamp-1 min-w-[95px]">{data.period}</header>
                 <div className="flex flex-col">
                   <div className="inline-flex gap-x-2 duration-200">
-                    <h2 className="text-slate-800 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.title}</h2>
+                    <h2 className="text-slate-800 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.company}</h2>
                     <div className="duration-200 group-hover:text-cyan-500 group-hover:translate-x-1">&#8594;</div>
                   </div>
                   <p className="font-light text-sm mt-1">{data.description}</p>
@@ -72,7 +74,7 @@ export default function Resume() {
               </a>
             </div>
           ))}
-          <div className="group px-6 font-bold mb-4 hover:cursor-pointer">
+          <div className="group px-6 font-bold pb-20 hover:cursor-pointer">
             <a className="inline-flex gap-x-2 text-slate-800 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors">
               <span>View Full Resume</span>
               <span className="duration-200 group-hover:text-cyan-500 group-hover:translate-x-1 font-medium">&#8594;</span>
