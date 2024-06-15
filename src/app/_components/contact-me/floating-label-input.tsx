@@ -9,7 +9,9 @@ interface Props {
   label: string;
   register: UseFormRegisterReturn;
   isError?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   field?: ControllerRenderProps<FieldValues, any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fieldState?: any;
   disabled?: boolean;
 }
@@ -23,7 +25,9 @@ export default function FloatingLabelInput({ type, id, label, register, isError,
     } else {
       if (field && fieldState) {
         if (
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
           fieldState.error ||
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
           (fieldState.isTouched && (
           field.value === "" 
           || field.value === null 

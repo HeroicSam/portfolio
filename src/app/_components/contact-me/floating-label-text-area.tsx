@@ -16,7 +16,7 @@ export default function FloatingLabelTextArea({ field, fieldState, id, placehold
     if (field && fieldState) {
       if (
         // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        fieldState.error ||
+        fieldState.error ??
         // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         (fieldState.isTouched && (
         field.value === "" 
