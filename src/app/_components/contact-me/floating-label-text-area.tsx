@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { ControllerRenderProps, FieldValues } from "react-hook-form";
+import { ControllerFieldState, ControllerRenderProps, FieldValues } from "react-hook-form";
 
 interface Props {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   field?: ControllerRenderProps<FieldValues, any>;
-  fieldState?: any;
+  fieldState?: ControllerFieldState;
   id: string;
   placeholder: string;
 }
@@ -14,7 +15,9 @@ export default function FloatingLabelTextArea({ field, fieldState, id, placehold
   useEffect(() => {
     if (field && fieldState) {
       if (
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         fieldState.error ||
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         (fieldState.isTouched && (
         field.value === "" 
         || field.value === null 

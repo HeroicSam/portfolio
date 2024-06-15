@@ -46,7 +46,7 @@ export default function Hero() {
         </div>
         <div className="w-full md:w-1/2 h-full flex flex-col items-center md:justify-center md:items-start">
           <Image
-            src="/me.png"
+            src="/me.jpg"
             alt="me"
             width={424}
             height={557}
