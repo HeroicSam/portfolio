@@ -66,12 +66,12 @@ export default function ContactMePage() {
                 error: false,
               }}
               id="message"
-              placeholder="Yerrrrrr. What's up?"
+              placeholder="Yerrrrrr."
             />
           )}
         />
         <div className="w-full flex justify-end">
-          <button type="submit" className="text-sm py-1.5 px-4 border border-slate-200 rounded-md">Send</button>
+          <button type="submit" className="text-sm py-1.5 px-4 border border-slate-200 dark:border-slate-700 dark:bg-slate-800 rounded-md">Send</button>
         </div>
       </form>
     </div>

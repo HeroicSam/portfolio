@@ -78,9 +78,9 @@ export default function Resume() {
       <motion.div className='slide' {...anim(slide)}/>
       <motion.div className='page' {...anim(perspective)}>
         <motion.div {...anim(opacity)}>
-          <div className="w-full lg:min-w-[900px] flex justify-between h-full">
+          <div className="w-full lg:min-w-[1000px] flex justify-between h-full">
             {scroll && (
-              <div className="sticky top-[100px] h-[calc(100vh-120px)] hidden lg:flex flex-col justify-between pr-10 border-r border-[#252525] dark:border-slate-200">
+              <div className="sticky top-[100px] h-[calc(100vh-120px)] hidden lg:flex flex-col justify-between pr-20 border-r border-[#252525] dark:border-slate-200">
                 <nav className="flex flex-col gap-y-2 text-sm font-bold">
                   <div className="inline-flex items-center">
                     <div className="bullet1 hidden opacity-0 w-1 h-1 bg-black dark:bg-slate-100 rounded-[50%]"/>
@@ -115,7 +115,7 @@ export default function Resume() {
                     </div>
                   </div>
                 </nav>
-                <div className="w-full max-w-[100px] text-xs font-bold dark:text-white">
+                <div className="w-full max-w-[120px] text-xs font-bold dark:text-white">
                   <p>Born and raised in New Jersey, USA.</p>
                   <p className="whitespace-pre-line">On the weekend you can find me in de_dust2 and sometimes de_mirage.</p>
                   <p className="whitespace-pre-line">Currently typing on a Paragon75 with Cherry MX Blacks.</p>

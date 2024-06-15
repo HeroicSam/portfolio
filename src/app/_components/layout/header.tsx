@@ -35,8 +35,8 @@ export default function Header() {
   }
 
   return (
-    <header className="absolute w-full h-[100px] flex justify-center bg-transparent px-6 sm:px-20 top-0 rounded-lg text-[#252525] dark:text-slate-100 z-40">
-      <div className="w-full flex justify-between items-center max-w-[900px]">
+    <header className="absolute w-full h-[100px] flex justify-center bg-transparent px-6 md:px-20 top-0 rounded-lg text-[#252525] dark:text-slate-100 z-40">
+      <div className="w-full flex justify-between items-center max-w-[1000px]">
         <Link href="/" className={`${kaisei.className} text-2xl font-bold flex gap-x-1.5`}>
           <span>Conor</span>
           <span className="hidden md:block">Lee</span>
