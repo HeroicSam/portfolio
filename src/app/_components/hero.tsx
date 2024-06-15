@@ -40,7 +40,7 @@ export default function Hero() {
                 width={24}
                 height={24}
               />
-              <Link href="/" className={`${kaisei.className} mb-0.5 hover:underline hover:cursor-pointer hover:transition-transform hover:ease-in-out hover:translate-x-0.5 hover:-translate-y-0.5 hover:text-blue-600`}>about me</Link>
+              <Link href="/contact-me" className={`${kaisei.className} mb-0.5 hover:underline hover:cursor-pointer hover:transition-transform hover:ease-in-out hover:translate-x-0.5 hover:-translate-y-0.5 hover:text-blue-600`}>say hi!</Link>
             </div>
           </div>
         </div>

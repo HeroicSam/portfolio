@@ -16,8 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
+        <link rel="icon" href="/favicon.png" sizes="any" type="image/png"/>
         <TRPCReactProvider>
-          <ThemeProvider enableSystem={false} attribute="class">
+          <ThemeProvider enableSystem={false} attribute="class" defaultTheme="dark">
             <AnimatePresence mode="wait">
               <Header key={"header"} />
               <Background key={"background"} />

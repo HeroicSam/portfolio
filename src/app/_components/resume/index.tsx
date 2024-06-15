@@ -74,7 +74,7 @@ export default function Resume() {
   if (!isMounted) return null
 
   return (
-    <div className='absolute w-full h-[calc(100vh-100px)] top-[100px] flex justify-center z-40 text-[#252525] dark:text-slate-100'>
+    <div className='absolute w-full h-[calc(100vh-100px)] flex justify-center z-40 text-[#252525] dark:text-slate-100'>
       <motion.div className='slide' {...anim(slide)}/>
       <motion.div className='page' {...anim(perspective)}>
         <motion.div {...anim(opacity)}>
@@ -115,7 +115,7 @@ export default function Resume() {
                     </div>
                   </div>
                 </nav>
-                <div className="w-full max-w-[120px] text-xs font-bold dark:text-white">
+                <div className="w-full max-w-[120px] text-xs font-bold dark:text-white pb-12">
                   <p>Born and raised in New Jersey, USA.</p>
                   <p className="whitespace-pre-line">On the weekend you can find me in de_dust2 and sometimes de_mirage.</p>
                   <p className="whitespace-pre-line">Currently typing on a Paragon75 with Cherry MX Blacks.</p>
@@ -162,7 +162,7 @@ export default function Resume() {
               </div>
             )}
             <div>
-              <div id="experience" className="px-6 font-bold mb-8">Experience</div>
+              <div id="experience" className="px-6 font-bold pt-[100px] mb-8">Experience</div>
               {resumeData.map((data, index) => (
                 <div key={index} className="group mb-4">
                   <a
