@@ -117,7 +117,7 @@ export default function Resume() {
                 </nav>
                 <div className="w-full max-w-[100px] text-xs font-bold dark:text-white">
                   <p>Born and raised in New Jersey, USA.</p>
-                  <p className="whitespace-pre-line">On holidays you can find me at de_dust2 and sometimes de_mirage.</p>
+                  <p className="whitespace-pre-line">On the weekend you can find me in de_dust2 and sometimes de_mirage.</p>
                   <p className="whitespace-pre-line">Currently typing on a Paragon75 with Cherry MX Blacks.</p>
                   <div className="flex mt-4 gap-x-2">
                     <Link
