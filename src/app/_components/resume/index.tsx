@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { slide, opacity, perspective } from "./anim";
+import { slide, opacity, perspective, anim } from "../common/anim";
 import { projectsData, resumeData } from "./constants";
 import Badge from "./badge";
 import gsap from "gsap";
@@ -9,17 +9,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const anim = (variants: any) => {
-  return {
-      initial: "initial",
-      animate: "enter",
-      exit: "exit",
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      variants
-  }
-}
 
 export default function Resume() {
   const { theme, setTheme }  = useTheme()

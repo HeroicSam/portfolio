@@ -48,3 +48,14 @@ export const opacity = {
       opacity: 1
   }
 }
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const anim = (variants: any) => {
+    return {
+        initial: "initial",
+        animate: "enter",
+        exit: "exit",
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        variants
+    }
+  }
