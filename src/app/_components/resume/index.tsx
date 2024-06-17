@@ -151,11 +151,11 @@ export default function Resume() {
               </div>
             )}
             <div>
-              <div id="experience" className="font-bold pt-[100px] mb-8">Experience</div>
+              <div id="experience" className="font-bold lg:px-6 pt-[100px] mb-8">Experience</div>
               {resumeData.map((data, index) => (
                 <div key={index} className="group mb-4">
                   <a
-                    className="group-hover:shadow-lg group-hover:backdrop-blur-3xl bg-transparent transition flex py-4 gap-x-6 lg:max-w-[700px] hover:cursor-pointer rounded-md"
+                    className="group-hover:shadow-lg group-hover:backdrop-blur-3xl bg-transparent transition flex lg:px-6 py-4 gap-x-6 lg:max-w-[700px] hover:cursor-pointer rounded-md"
                     href={data.link}
                     target="_blank"
                     rel="noreferrer"
@@ -178,11 +178,11 @@ export default function Resume() {
                   </a>
                 </div>
               ))}
-              <div id="projects" className="font-bold mb-8">Projects</div>
+              <div id="projects" className="font-bold lg:px-6 mb-8">Projects</div>
               {projectsData.map((data, index) => (
                 <div key={index} className="group mb-4">
                   <a
-                    className="group-hover:shadow-lg group-hover:backdrop-blur-3xl bg-transparent transition flex py-4 gap-x-6 max-w-[700px] hover:cursor-pointer rounded-md"
+                    className="group-hover:shadow-lg group-hover:backdrop-blur-3xl bg-transparent transition flex lg:px-6 py-4 gap-x-6 max-w-[750px] hover:cursor-pointer rounded-md"
                     href={data.link}
                     target="_blank"
                     rel="noreferrer"
