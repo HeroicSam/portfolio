@@ -14,6 +14,7 @@ const config = {
     "plugin:@typescript-eslint/stylistic-type-checked"
   ],
   "rules": {
+    "@typescript-eslint/no-unsafe-argument": "off",
     "eslint-disable-next-line @typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/prefer-nullish-coalescing": "off",
     "@typescript-eslint/array-type": "off",

@@ -15,7 +15,7 @@ export const messageRouter = createTRPCRouter({
       const resend = new Resend(process.env.RESEND_API_KEY);
 
       try {
-        resend.emails.send({
+        await resend.emails.send({
           from: 'me@conoryuen.com',
           to: 'cyuen10@gmail.com', 
           subject: `Portfolio: ${input.name} sent you a message from ${input.email}`,
