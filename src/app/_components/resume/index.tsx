@@ -205,7 +205,7 @@ export default function Resume() {
               ))}
               <div className="group px-6 font-bold pb-20 hover:cursor-pointer">
                 <a className="inline-flex gap-x-2 text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors">
-                  <span>View Full Resume</span>
+                  <span>View full resume</span>
                   <span className="duration-200 group-hover:text-cyan-500 group-hover:translate-x-1 font-medium">&#8594;</span>
                 </a>
               </div>
