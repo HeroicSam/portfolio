@@ -37,7 +37,7 @@ export default function Hero() {
                       width={24}
                       height={24}
                     />
-                    <Link href="/resume" className={`${kaisei.className} mb-0.5 hover:underline hover:cursor-pointer hover:transition-transform hover:ease-in-out hover:translate-x-0.5 hover:-translate-y-0.5 hover:text-blue-600`}>check out my resume</Link>
+                    <Link href="/resume" className={`${kaisei.className} mb-0.5 hover:underline hover:cursor-pointer hover:transition-transform hover:ease-in-out hover:translate-x-0.5 hover:-translate-y-0.5 hover:text-cyan-500`}>check out my resume</Link>
                   </div>
                   <div className="flex items-center gap-x-2 text-sm">
                     <Image
@@ -46,7 +46,7 @@ export default function Hero() {
                       width={24}
                       height={24}
                     />
-                    <Link href="/contact-me" className={`${kaisei.className} mb-0.5 hover:underline hover:cursor-pointer hover:transition-transform hover:ease-in-out hover:translate-x-0.5 hover:-translate-y-0.5 hover:text-blue-600`}>say hi!</Link>
+                    <Link href="/contact-me" className={`${kaisei.className} mb-0.5 hover:underline hover:cursor-pointer hover:transition-transform hover:ease-in-out hover:translate-x-0.5 hover:-translate-y-0.5 hover:text-cyan-500`}>say hi!</Link>
                   </div>
                 </div>
               </div>

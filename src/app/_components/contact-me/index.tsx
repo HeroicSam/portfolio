@@ -6,16 +6,23 @@ import FloatingLabelTextArea from "./floating-label-text-area";
 import { kaisei } from "@/styles/fonts";
 import { motion } from "framer-motion";
 import { slide, opacity, perspective, anim } from "../common/anim";
+import { api } from "@/trpc/react";
+import { useState } from "react";
 
 export default function ContactMe() {
   const { register, control, handleSubmit } = useForm();
+  const sendMessage = api.message.send.useMutation();
+  const [isLoading, setIsLoading] = useState(false);
+
   //eslint-disable-next-line @typescript-eslint/no-explicit-any
   async function onSubmit(data: any) {
+    setIsLoading(true);
     try {
-      
+      const response = await sendMessage.mutateAsync(data)
     } catch (error) {
       console.error(error);
     }
+    setIsLoading(false);
   }
 
   return (
@@ -77,7 +84,7 @@ export default function ContactMe() {
               )}
             />
             <div className="w-full flex justify-end">
-              <button type="submit" className="text-sm py-1.5 px-4 border border-slate-200 dark:border-slate-700 dark:bg-slate-800 rounded-md">Send</button>
+              <button type="submit" className="text-sm py-1.5 px-4 border border-slate-200 dark:border-slate-700 dark:bg-slate-800 rounded-md">{isLoading ? 'Sending...' : 'Send'}</button>
             </div>
           </form>
         </motion.div>
