@@ -67,7 +67,7 @@ export default function Resume() {
       <motion.div className='slide' {...anim(slide)}/>
       <motion.div className='page' {...anim(perspective)}>
         <motion.div {...anim(opacity)}>
-          <div className="w-full lg:min-w-[1000px] flex justify-between h-full">
+          <div className="w-full px-6 md:px-20 lg:px-0 lg:min-w-[1000px] flex justify-between h-full">
             {scroll && (
               <div className="sticky top-[100px] h-[calc(100vh-120px)] hidden lg:flex flex-col justify-between pr-20 border-r border-[#252525] dark:border-slate-200">
                 <nav className="flex flex-col gap-y-2 text-sm font-bold">
@@ -151,11 +151,11 @@ export default function Resume() {
               </div>
             )}
             <div>
-              <div id="experience" className="px-6 font-bold pt-[100px] mb-8">Experience</div>
+              <div id="experience" className="font-bold pt-[100px] mb-8">Experience</div>
               {resumeData.map((data, index) => (
                 <div key={index} className="group mb-4">
                   <a
-                    className="group-hover:shadow-lg group-hover:backdrop-blur-3xl bg-transparent transition flex px-6 py-4 gap-x-6 max-w-[700px] hover:cursor-pointer rounded-md"
+                    className="group-hover:shadow-lg group-hover:backdrop-blur-3xl bg-transparent transition flex py-4 gap-x-6 lg:max-w-[700px] hover:cursor-pointer rounded-md"
                     href={data.link}
                     target="_blank"
                     rel="noreferrer"
@@ -178,11 +178,11 @@ export default function Resume() {
                   </a>
                 </div>
               ))}
-              <div id="projects" className="px-6 font-bold mb-8">Projects</div>
+              <div id="projects" className="font-bold mb-8">Projects</div>
               {projectsData.map((data, index) => (
                 <div key={index} className="group mb-4">
                   <a
-                    className="group-hover:shadow-lg group-hover:backdrop-blur-3xl bg-transparent transition flex px-6 py-4 gap-x-6 max-w-[700px] hover:cursor-pointer rounded-md"
+                    className="group-hover:shadow-lg group-hover:backdrop-blur-3xl bg-transparent transition flex py-4 gap-x-6 max-w-[700px] hover:cursor-pointer rounded-md"
                     href={data.link}
                     target="_blank"
                     rel="noreferrer"
