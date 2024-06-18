@@ -47,6 +47,8 @@ export const projectsData = [
       "GSAP",
       "Framer Motion",
       "Tailwind CSS",
+      "tRPC",
+      "Drizzle",
       "Heroku",
     ],
   },

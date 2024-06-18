@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { slide, opacity, perspective, anim } from "../common/anim";
 import { api } from "@/trpc/react";
 import { useState } from "react";
+import { BeatLoader } from "react-spinners";
 
 export default function ContactMe() {
   const { register, control, handleSubmit } = useForm();
@@ -84,7 +85,9 @@ export default function ContactMe() {
               )}
             />
             <div className="w-full flex justify-end">
-              <button type="submit" className="text-sm py-1.5 px-4 border border-slate-200 dark:border-slate-700 dark:bg-slate-800 rounded-md">{isLoading ? 'Sending...' : 'Send'}</button>
+              <button type="submit" className="text-sm py-1.5 px-4 border border-slate-200 dark:border-slate-700 dark:bg-slate-800 rounded-md">
+                {isLoading ? <BeatLoader loading={isLoading} color="#06b6d4" size={4} /> : 'Send'}
+              </button>
             </div>
           </form>
         </motion.div>

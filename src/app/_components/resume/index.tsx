@@ -13,6 +13,7 @@ import { useTheme } from "next-themes";
 export default function Resume() {
   const { theme, setTheme }  = useTheme()
   const [isMounted , setIsMounted] = useState(false)
+  const [isSectionEntered, setIsSectionEntered] = useState<Number[]>([0])
 
   useEffect(() => {
     setIsMounted(true)
@@ -57,6 +58,23 @@ export default function Resume() {
       duration: 0.1,
       opacity: 0,
       display: 'none',
+    })
+  }
+
+  function handleSectionEnter({ number }: { number: Number }) {
+    const anchorToExclude = `.a${number}`
+    const anchorsToAnimate = [".a0", ".a1", ".a2", ".a3", ".a4", ".a5"].filter((a) => a !== anchorToExclude)
+
+    gsap.to(anchorsToAnimate, {
+      duration: 0.1,
+      opacity: 0.3,
+    })
+  }
+
+  function handleSectionExit({ number }: { number: Number }) {
+    gsap.to("a", {
+      duration: 0.1,
+      opacity: 1,
     })
   }
 
@@ -155,20 +173,22 @@ export default function Resume() {
               {resumeData.map((data, index) => (
                 <div key={index} className="group mb-4">
                   <a
-                    className="group-hover:shadow-lg group-hover:backdrop-blur-3xl bg-transparent transition flex lg:px-6 py-4 gap-x-6 lg:max-w-[700px] hover:cursor-pointer rounded-md"
+                    className={`a${index} group-hover:shadow-lg group-hover:backdrop-blur-3xl bg-transparent transition flex lg:px-6 py-4 gap-x-6 lg:max-w-[700px] hover:cursor-pointer rounded-md`}
                     href={data.link}
                     target="_blank"
                     rel="noreferrer"
+                    onMouseEnter={() =>handleSectionEnter({ number: index })}
+                    onMouseLeave={() => handleSectionExit({ number: index })}
                   >
-                    <header className="text-sm text-slate-500 dark:text-slate-300 line-clamp-1 min-w-[95px] mt-0.5">{data.period}</header>
+                    <header className="text-slate-500 dark:text-slate-300 text-sm line-clamp-1 min-w-[95px] mt-0.5">{data.period}</header>
                     <div className="flex flex-col">
                       <div className="inline-flex gap-x-2 duration-200">
                         <h2 className="text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.title}</h2>
                         <h2 className="text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">&#183;</h2>
                         <h2 className="text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.company}</h2>
-                        <div className="duration-200 group-hover:text-cyan-500 group-hover:translate-x-1">&#8594;</div>
+                        <div className={`duration-200 group-hover:text-cyan-500 group-hover:translate-x-1`}>&#8594;</div>
                       </div>
-                      <p className="font-light text-sm mt-1">{data.description}</p>
+                      <p className={`font-light text-sm mt-1`}>{data.description}</p>
                       <div className="flex flex-wrap gap-y-2 mt-4">
                         {data?.technologies.map((tech, index) => (
                           <Badge key={index} text={tech} />
@@ -180,14 +200,16 @@ export default function Resume() {
               ))}
               <div id="projects" className="font-bold lg:px-6 mb-8">Projects</div>
               {projectsData.map((data, index) => (
-                <div key={index} className="group mb-4">
+                <div key={index + 2} className="group mb-4">
                   <a
-                    className="group-hover:shadow-lg group-hover:backdrop-blur-3xl bg-transparent transition flex lg:px-6 py-4 gap-x-6 max-w-[750px] hover:cursor-pointer rounded-md"
+                    className={`a${index + 2} group-hover:shadow-lg group-hover:backdrop-blur-3xl bg-transparent transition flex lg:px-6 py-4 gap-x-6 lg:max-w-[700px] hover:cursor-pointer rounded-md`}
                     href={data.link}
                     target="_blank"
                     rel="noreferrer"
+                    onMouseEnter={() => handleSectionEnter({ number: index + 2 })}
+                    onMouseLeave={() => handleSectionExit({ number: index + 2 })}
                   >
-                    <header className="text-sm text-slate-500 dark:text-slate-300 line-clamp-1 min-w-[95px] mt-0.5">{data.period}</header>
+                    <header className="text-slate-500 dark:text-slate-300 text-sm line-clamp-1 min-w-[95px] mt-0.5">{data.period}</header>
                     <div className="flex flex-col">
                       <div className="inline-flex gap-x-2 duration-200">
                         <h2 className="text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.company}</h2>
