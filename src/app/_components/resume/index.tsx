@@ -9,11 +9,11 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
+import { StringChunk } from "drizzle-orm";
 
 export default function Resume() {
   const { theme, setTheme }  = useTheme()
   const [isMounted , setIsMounted] = useState(false)
-  const [isSectionEntered, setIsSectionEntered] = useState<Number[]>([0])
 
   useEffect(() => {
     setIsMounted(true)
@@ -61,7 +61,7 @@ export default function Resume() {
     })
   }
 
-  function handleSectionEnter({ number }: { number: Number }) {
+  function handleSectionEnter({ number }: { number: number }) {
     const anchorToExclude = `.a${number}`
     const anchorsToAnimate = [".a0", ".a1", ".a2", ".a3", ".a4", ".a5"].filter((a) => a !== anchorToExclude)
 
@@ -71,7 +71,7 @@ export default function Resume() {
     })
   }
 
-  function handleSectionExit({ number }: { number: Number }) {
+  function handleSectionExit() {
     gsap.to("a", {
       duration: 0.1,
       opacity: 1,
@@ -178,7 +178,7 @@ export default function Resume() {
                     target="_blank"
                     rel="noreferrer"
                     onMouseEnter={() =>handleSectionEnter({ number: index })}
-                    onMouseLeave={() => handleSectionExit({ number: index })}
+                    onMouseLeave={() => handleSectionExit()}
                   >
                     <header className="text-slate-500 dark:text-slate-300 text-sm line-clamp-1 min-w-[95px] mt-0.5">{data.period}</header>
                     <div className="flex flex-col">
@@ -207,7 +207,7 @@ export default function Resume() {
                     target="_blank"
                     rel="noreferrer"
                     onMouseEnter={() => handleSectionEnter({ number: index + 2 })}
-                    onMouseLeave={() => handleSectionExit({ number: index + 2 })}
+                    onMouseLeave={() => handleSectionExit()}
                   >
                     <header className="text-slate-500 dark:text-slate-300 text-sm line-clamp-1 min-w-[95px] mt-0.5">{data.period}</header>
                     <div className="flex flex-col">
