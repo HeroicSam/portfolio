@@ -81,13 +81,13 @@ export default function Resume() {
   if (!isMounted) return null
 
   return (
-    <div className='absolute w-full h-[calc(100vh-100px)] flex justify-center z-40 text-[#252525] dark:text-slate-100'>
+    <div className='absolute lg:top-[100px] w-full h-[calc(100vh-100px)] flex justify-center z-40 text-[#252525] dark:text-slate-100'>
       <motion.div className='slide' {...anim(slide)}/>
       <motion.div className='page' {...anim(perspective)}>
         <motion.div {...anim(opacity)}>
           <div className="w-full px-6 md:px-20 lg:px-0 lg:min-w-[1000px] flex justify-between h-full">
             {scroll && (
-              <div className="sticky mt-[100px] h-[calc(100vh-120px)] hidden lg:flex flex-col justify-between pr-20 border-r border-[#252525] dark:border-slate-200">
+              <div className="sticky top-[100px] h-[calc(100vh-120px)] hidden lg:flex flex-col justify-between pr-20 border-r border-[#252525] dark:border-slate-200 overflow-y-auto">
                 <nav className="flex flex-col gap-y-2 text-sm font-bold">
                   <div className="inline-flex items-center">
                     <div className="bullet1 hidden opacity-0 w-1 h-1 bg-black dark:bg-slate-100 rounded-[50%]"/>
@@ -169,7 +169,7 @@ export default function Resume() {
               </div>
             )}
             <div>
-              <div id="experience" className="font-bold lg:px-6 pt-[100px] mb-8">Experience</div>
+              <div id="experience" className="font-bold lg:px-6 pt-[100px] lg:pt-0 mb-8">Experience</div>
               {resumeData.map((data, index) => (
                 <div key={index} className="group mb-4">
                   <a
