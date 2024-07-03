@@ -40,7 +40,7 @@ export const projectsData = [
     period: "2024",
     company: "conoryuen.com",
     link: "https://www.conoryuen.com",
-    description: "The third iteration of my personal portfolio website. Designed in Figma and built with Next.js. GSAP and Framer Motion were used for animations and transitions. Types are Kaisei Tokumin and Geist Sans.", 
+    description: "The third iteration of my personal portfolio website. Designed in Figma and built with Next.js, GSAP, and Framer Motion were used for animations and transitions. Types are Kaisei Tokumin and Geist Sans.", 
     technologies: [ 
       "Next.js",
       "Typescript",
