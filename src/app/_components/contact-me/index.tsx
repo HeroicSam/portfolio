@@ -85,7 +85,7 @@ export default function ContactMe() {
                   field={field}
                   fieldState={fieldState}
                   id="message"
-                  placeholder="Yerrrrrr."
+                  placeholder="Leave me a message!"
                 />
               )}
             />
