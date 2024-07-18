@@ -1,7 +1,7 @@
 export const resumeData = [
   {
     period: "2021 - Present",
-    title: "Co-Founder & Full-Stack Developer",
+    title: "Full-Stack Developer",
     company: "Hotswaps.io",
     link: "https://www.hotswaps.io",
     description: "Build and maintain the marketplace payment system and infrastructure for Hotswaps. Works closely with the PayPal for Marketplaces team to integrate the payment gateway and manage payment processing. Over 2k monthly active users.",
