@@ -28,7 +28,7 @@ export default function Hero() {
               <div className="pr-2 w-full md:w-1/2 h-1/2 md:h-full flex flex-col items-center md:justify-center md:items-start pt-10 md:pt-0">
                 <h1 className="hello text-5xl font-bold">Heya! I&apos;m <span className="text-cyan-500">Conor</span></h1>
                 <p className="font-light mt-4">I&apos;m a full-stack developer based in Brooklyn, NY.</p>
-                <p className="font-light">Currently working on a marketplace for keyboards at <span className="text-[#0172DA] font-medium">Hotswaps</span>.</p>
+                <p className="font-light">Currently working on <span className="text-[#0172DA] font-medium">Hotswaps</span>.</p>
                 <div className="flex items-center gap-x-4 mt-4" >
                   <div className="flex items-center gap-x-2 text-sm">
                     <Image
