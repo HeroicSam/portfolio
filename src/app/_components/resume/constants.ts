@@ -1,10 +1,10 @@
 export const resumeData = [
   {
     period: "2021 - Present",
-    title: "Full-Stack Developer",
+    title: "Co-Founder & Full-Stack Developer",
     company: "Hotswaps.io",
     link: "https://www.hotswaps.io",
-    description: "Build and maintain the marketplace payment system and infrastructure for Hotswaps. Works closely with the PayPal for Marketplaces team to integrate the payment gateway and manage payment processing. Over 2k monthly active users.",
+    description: "I co-founded Hotswaps in 2021 with the goal of building a modern marketplace for the mechanical keyboard hobby. We released our MVP in 2023 and scaled to over 800 monthly active users. I built out the site's payment infrastructure, user-messaging feature, and notification/email systems.",
     technologies: [
       "Javascript",
       "Typescript",
@@ -21,11 +21,11 @@ export const resumeData = [
     ],
   },
   {
-    period: "2019 - 2021",
+    period: "2019 - Present",
     title: "Financial Analyst",
     company: "Inizio",
     link: "https://www.inizio.com",
-    description: "I originally started out my professional career as a financial analyst at Inizio where I focused on revenue analysis and forecasting. During my time at Inizio, I managed over $13M in annual revenue between 3 business units.",
+    description: "By day I'm a financial analyst at Inizio where I focused on revenue analysis and forecasting. Currently, I manage over $13.5M in annual revenue between 2 business units.",
     technologies: [
       "Excel",
       "Pivot Tables",
@@ -40,7 +40,7 @@ export const projectsData = [
     period: "2024",
     company: "conoryuen.com",
     link: "https://www.conoryuen.com",
-    description: "The third iteration of my personal portfolio website. Designed in Figma and built with Next.js, GSAP, and Framer Motion were used for animations and transitions. Types are Kaisei Tokumin and Geist Sans.", 
+    description: "The third iteration of my personal portfolio website. Designed in Figma and built with Next.js and GSAP. Framer Motion were used for animations and transitions. Types are Kaisei Tokumin and Geist Sans.", 
     technologies: [ 
       "Next.js",
       "Typescript",
@@ -77,3 +77,9 @@ export const projectsData = [
     ],
   }
 ]
+
+export const educationData = {
+  period: "2015 - 2019",
+  school: "The College of New Jersey",
+  degree: "Bachelor of Science in Finance",
+}

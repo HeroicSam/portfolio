@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { slide, opacity, perspective, anim } from "../common/anim";
-import { projectsData, resumeData } from "./constants";
+import { educationData, projectsData, resumeData } from "./constants";
 import Badge from "./badge";
 import gsap from "gsap";
 import { useEffect, useState } from "react";
@@ -139,7 +139,7 @@ export default function Resume() {
                       />
                     </Link>
                     <Link
-                      href="https://www.instagram.com/conoryuen/"
+                      href="https://www.linkedin.com/in/conor-yuen/"
                       target="_blank"
                       referrerPolicy="no-referrer"
                     >
@@ -179,10 +179,10 @@ export default function Resume() {
                     onMouseEnter={() =>handleSectionEnter({ number: index })}
                     onMouseLeave={() => handleSectionExit()}
                   >
-                    <header className="text-slate-500 dark:text-slate-300 text-sm line-clamp-1 min-w-[95px] mt-0.5">{data.period}</header>
+                    <header className="text-slate-500 dark:text-slate-300 text-sm line-clamp-1 min-w-[100px] mt-0.5">{data.period}</header>
                     <div className="flex flex-col">
                       <div className="inline-flex gap-x-2 duration-200">
-                        <h2 className="text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.title}</h2>
+                        <h2 className="text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold line-clamp-1">{data.title}</h2>
                         <h2 className="text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">&#183;</h2>
                         <h2 className="text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.company}</h2>
                         <div className={`duration-200 group-hover:text-cyan-500 group-hover:translate-x-1`}>&#8594;</div>
@@ -208,7 +208,7 @@ export default function Resume() {
                     onMouseEnter={() => handleSectionEnter({ number: index + 2 })}
                     onMouseLeave={() => handleSectionExit()}
                   >
-                    <header className="text-slate-500 dark:text-slate-300 text-sm line-clamp-1 min-w-[95px] mt-0.5">{data.period}</header>
+                    <header className="text-slate-500 dark:text-slate-300 text-sm line-clamp-1 min-w-[100px] mt-0.5">{data.period}</header>
                     <div className="flex flex-col">
                       <div className="inline-flex gap-x-2 duration-200">
                         <h2 className="text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{data.company}</h2>
@@ -224,8 +224,29 @@ export default function Resume() {
                   </a>
                 </div>
               ))}
+              <div id="projects" className="font-bold lg:px-6 mb-8">Education</div>
+              {educationData && (
+                <div key={5} className="group mb-4">
+                  <a
+                    className={`a${5} group-hover:shadow-lg group-hover:backdrop-blur-3xl bg-transparent transition flex lg:px-6 py-4 gap-x-6 lg:max-w-[700px] hover:cursor-pointer rounded-md`}
+                    target="_blank"
+                    rel="noreferrer"
+                    onMouseEnter={() => handleSectionEnter({ number: 5 })}
+                    onMouseLeave={() => handleSectionExit()}
+                  >
+                    <header className="text-slate-500 dark:text-slate-300 text-sm line-clamp-1 min-w-[100px] mt-0.5">{educationData.period}</header>
+                    <div className="flex flex-col">
+                      <div className="inline-flex gap-x-2 duration-200">
+                        <h2 className="text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold line-clamp-1">{educationData.school}</h2>
+                        <h2 className="text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">&#183;</h2>
+                        <h2 className="text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors font-bold">{educationData.degree}</h2>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              )}
               <div className="group px-6 font-bold pb-20 hover:cursor-pointer">
-                <a className="inline-flex gap-x-2 text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors">
+                <a className="inline-flex gap-x-2 text-slate-800 dark:text-slate-100 group-hover:text-cyan-500 group-hover:ease-in-out transition-colors" href="/yuen.conor-resume.pdf" target="_blank" rel="noreferrer">
                   <span>View full resume</span>
                   <span className="duration-200 group-hover:text-cyan-500 group-hover:translate-x-1 font-medium">&#8594;</span>
                 </a>
